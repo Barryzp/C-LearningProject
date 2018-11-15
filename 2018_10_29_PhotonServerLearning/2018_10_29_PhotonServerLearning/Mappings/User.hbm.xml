@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="2018_10_29_PhotonServerLearning"
+                   namespace="_2018_10_29_PhotonServerLearning.Model">
+
+  <class name="User" table="users">
+    <!--主键的配置如下-->
+    <id name= "Id" column="id" type="Int32">
+      <generator class="native"></generator>
+    </id>
+
+    <!--这个类型代表的是NHibernate中的数据类型，见OneNote笔记-->
+    <property name="Username" column="username" type="String"></property>
+    <property name="Password" column="password" type="String"></property>
+    <property name="Registerdate" column="registerdate" type="Date"></property>
+
+
+  </class>
+
+</hibernate-mapping>

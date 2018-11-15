@@ -19,7 +19,7 @@ namespace _2018_10_29_PhotonServerLearning
 
         public void OpenDB()
         {
-            //settle exception,cause we need know the reason why it crashed.
+            //settle exception,cause we need to know the reason why it crashed.
             try
             {
                 connection.Open();

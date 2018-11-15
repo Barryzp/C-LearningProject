@@ -3,12 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using _2018_10_29_PhotonServerLearning.Model;
 
 namespace _2018_10_29_PhotonServerLearning
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            NHibernateLearning nHibernateLearning = new NHibernateLearning();
+            List<User> users = new List<User>();
+
+            User user1 = new User() { Id = 1233 , Username = "NastyBarry1" , Password = "Nb123", Registerdate = new DateTime(2011, 10, 12) };
+            users.Add(user1);
+            User user2 = new User() { Id = 1236, Username = "NastyBarry2", Password = "Nb123", Registerdate = new DateTime(2011, 10, 12) };
+            users.Add(user2);
+            nHibernateLearning.InsertToDB(users);
+        }
+
+        static void NormalSqlProgram()
         {
             ConnectToMySQL connect = new ConnectToMySQL();
             connect.OpenDB();

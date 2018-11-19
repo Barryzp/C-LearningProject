@@ -1,0 +1,6 @@
+D:\WorkSpace_Main\C-LearningProject\2018_10_29_PhotonServerLearning\Common\bin\Debug\Common.dll
+D:\WorkSpace_Main\C-LearningProject\2018_10_29_PhotonServerLearning\Common\bin\Debug\Common.pdb
+D:\WorkSpace_Main\C-LearningProject\2018_10_29_PhotonServerLearning\Common\obj\Debug\Common.csprojAssemblyReference.cache
+D:\WorkSpace_Main\C-LearningProject\2018_10_29_PhotonServerLearning\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+D:\WorkSpace_Main\C-LearningProject\2018_10_29_PhotonServerLearning\Common\obj\Debug\Common.dll
+D:\WorkSpace_Main\C-LearningProject\2018_10_29_PhotonServerLearning\Common\obj\Debug\Common.pdb

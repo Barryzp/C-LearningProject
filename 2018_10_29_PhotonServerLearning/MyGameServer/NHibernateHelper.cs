@@ -21,7 +21,7 @@ namespace MyGameServer
                 {
                     Configuration configuration = new Configuration();
                     configuration.Configure();
-                    configuration.AddAssembly("2018_10_29_PhotonServerLearning");
+                    configuration.AddAssembly("MyGameServer");
                     sessionFactory = configuration.BuildSessionFactory();
                 }
                 return sessionFactory;

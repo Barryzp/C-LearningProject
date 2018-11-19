@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _2018_10_29_PhotonServerLearning.Model;
+using MyGameServer.Model;
 using NHibernate;
 using NHibernate.Cfg;
 
-namespace _2018_10_29_PhotonServerLearning
+namespace MyGameServer
 {
     public class NHibernateLearning
     {

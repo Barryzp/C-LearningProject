@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2018_10_29_PhotonServerLearning
+namespace MyGameServer
 {
     class ConnectToMySQL
     {

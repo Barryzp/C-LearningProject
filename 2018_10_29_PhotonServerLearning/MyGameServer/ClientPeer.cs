@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Photon.SocketServer;
 using PhotonHostRuntimeInterfaces;
+using Common;
+using Common.Tools;
+using MyGameServer.Handler;
 
 namespace MyGameServer
 {
@@ -22,8 +25,16 @@ namespace MyGameServer
         //处理客户端的请求
         protected override void OnOperationRequest(OperationRequest operationRequest, SendParameters sendParameters)
         {
+            BaseHandler handler = DictTool.GetDictValue<OperationCode, BaseHandler>(MyGameServer.Instance.handlerSet, (OperationCode)operationRequest.OperationCode);
+            if (handler == null)
+            {
+                handler = DictTool.GetDictValue<OperationCode, BaseHandler>(MyGameServer.Instance.handlerSet, OperationCode.DefaultOperation);
+            }
+            handler.OnOpereationRequest(operationRequest, sendParameters, this);
+            #region 测试
+            /*
             //通过OpCode区分不同的请求，类似于枚举
-            switch(operationRequest.OperationCode)
+            switch (operationRequest.OperationCode)
             {
                 case 1:
                     MyGameServer.log.Info("Receive a request from client.");
@@ -48,7 +59,8 @@ namespace MyGameServer
                 default:
                     break;
             }
-
+            */
+            #endregion
         }
     }
 }

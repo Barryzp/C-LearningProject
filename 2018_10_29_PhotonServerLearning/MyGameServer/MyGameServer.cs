@@ -10,6 +10,8 @@ using ExitGames.Logging.Log4Net;//Step2
 using log4net.Config;           //Step3
 using MyGameServer.Model;
 using MyGameServer.Manager;
+using MyGameServer.Handler;
+using Common;
 
 namespace MyGameServer
 {
@@ -18,6 +20,13 @@ namespace MyGameServer
     {
         public static readonly ILogger log = LogManager.GetCurrentClassLogger();
 
+        public new static MyGameServer Instance
+        {
+            get;
+            private set;
+        }
+
+        public Dictionary<OperationCode, BaseHandler> handlerSet = new Dictionary<OperationCode, BaseHandler>();
         //当一个客户端请求连接的时候
         protected override PeerBase CreatePeer(InitRequest initRequest)
         {
@@ -28,6 +37,11 @@ namespace MyGameServer
         //初始化
         protected override void Setup()
         {
+            Instance = this;
+            log.Info("First message logged.");
+
+            InitHandler();
+
             #region 日志的初始化
             //配置log日志所在的目录
             log4net.GlobalContext.Properties["Photon:ApplicationLogPath"] =Path.Combine(ApplicationRootPath,"log");
@@ -44,13 +58,24 @@ namespace MyGameServer
                 XmlConfigurator.ConfigureAndWatch(configFileInfo);
             }
             #endregion
-            log.Info("First message logged.");
         }
 
         //Server端关闭的时候
         protected override void TearDown()
         {
             log.Info("The server shut down");
+        }
+
+        public void InitHandler()
+        {
+            LogginHandler logginHandler = new LogginHandler();
+            handlerSet.Add(logginHandler.opCode, logginHandler);
+
+            RegisterHandler registerHandler = new RegisterHandler();
+            handlerSet.Add(registerHandler.opCode, registerHandler);
+
+            DefaultHandler defaultHandler = new DefaultHandler();
+            handlerSet.Add(defaultHandler.opCode,defaultHandler);
         }
     }
 }

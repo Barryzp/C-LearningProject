@@ -3,11 +3,15 @@ namespace Common
 {
     public enum OperationCode:byte
     {
+        LogginOperation,
+        RegisterOperation,
+        DefaultOperation
     }
 
     public enum ParameterCode:byte
     {
-
+        Username,
+        Password
     }
 
     public enum EventCode:byte
@@ -15,4 +19,11 @@ namespace Common
 
     }
 
+    public enum ReturnCode:short
+    {
+        Success,
+        Failed,
+        AccountExist,
+        RegisterSuccess
+    }
 }

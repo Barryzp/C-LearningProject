@@ -11,6 +11,18 @@ namespace MyGameServer.Manager
 {
     public class UserManager : IUserManager
     {
+        private static UserManager instance;
+        public static UserManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new UserManager();
+                }
+                return instance;
+            }
+        }
 
         public void Add(User user)
         {
@@ -24,6 +36,20 @@ namespace MyGameServer.Manager
             }
         }
 
+        public void Add(string username,string password)
+        {
+            User user = new User();
+            user.Username = username;
+            user.Password = password;
+            using (ISession session = NHibernateHelper.Session)
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var item = session.Save(user);
+                    transaction.Commit();
+                }
+            }
+        }
         public void Delete(User user)
         {
             using (ISession session = NHibernateHelper.Session)
@@ -93,12 +119,30 @@ namespace MyGameServer.Manager
                 criteria.Add(Restrictions.Eq("Password", password));
                 User user = criteria.UniqueResult<User>();
 
-                if(user==null)
+                if (user == null)
                 {
                     return false;
                 }
                 return true;
             }
         }
+
+        public bool IsDBExistSameUsername(string username)
+        {
+            using (ISession session = NHibernateHelper.Session)
+            {
+                ICriteria criteria = session.CreateCriteria(typeof(User));
+                //这里的Username是User类的字段中的Username
+                criteria.Add(Restrictions.Eq("Username", username));
+                User user = criteria.UniqueResult<User>();
+
+                if (user == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
     }
 }

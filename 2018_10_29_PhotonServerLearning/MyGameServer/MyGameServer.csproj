@@ -67,6 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientPeer.cs" />
+    <Compile Include="Handler\BaseHandler.cs" />
+    <Compile Include="Handler\DefaultHandler.cs" />
+    <Compile Include="Handler\LogginHandler.cs" />
+    <Compile Include="Handler\RegisterHandler.cs" />
     <Compile Include="Manager\IUserManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Model\Role.cs" />

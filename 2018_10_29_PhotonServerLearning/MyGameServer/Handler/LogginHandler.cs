@@ -27,6 +27,7 @@ namespace MyGameServer.Handler
             if (simpleJudge)
             {
                 operationResponse.ReturnCode = (short)ReturnCode.Success;
+                peer.username = username;
             }
             else
             {

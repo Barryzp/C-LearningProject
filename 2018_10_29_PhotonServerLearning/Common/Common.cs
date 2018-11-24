@@ -5,18 +5,27 @@ namespace Common
     {
         LogginOperation,
         RegisterOperation,
-        DefaultOperation
+        DefaultOperation,
+        SyncPositionOp,
+        SyncPlayerOp
     }
 
     public enum ParameterCode:byte
     {
         Username,
-        Password
+        Password,
+        Position,
+        X,
+        Y,
+        Z,
+        UsernameList,
+        PlayerDataList
     }
 
     public enum EventCode:byte
     {
-
+        NewPlayer,
+        SyncPlayerPosition
     }
 
     public enum ReturnCode:short

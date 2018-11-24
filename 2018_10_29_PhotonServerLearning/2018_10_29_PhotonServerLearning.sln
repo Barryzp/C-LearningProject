@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGameServer", "MyGameServe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{F973E2C2-230C-41EC-963D-6C045750B1DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fortest", "Fortest\Fortest.csproj", "{5516BC5B-FDC3-408D-B94A-97E79476A07A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F973E2C2-230C-41EC-963D-6C045750B1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F973E2C2-230C-41EC-963D-6C045750B1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F973E2C2-230C-41EC-963D-6C045750B1DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5516BC5B-FDC3-408D-B94A-97E79476A07A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5516BC5B-FDC3-408D-B94A-97E79476A07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5516BC5B-FDC3-408D-B94A-97E79476A07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5516BC5B-FDC3-408D-B94A-97E79476A07A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

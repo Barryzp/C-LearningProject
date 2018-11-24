@@ -11,6 +11,7 @@ using log4net.Config;           //Step3
 using MyGameServer.Model;
 using MyGameServer.Manager;
 using MyGameServer.Handler;
+using MyGameServer.Threads;
 using Common;
 
 namespace MyGameServer
@@ -20,18 +21,24 @@ namespace MyGameServer
     {
         public static readonly ILogger log = LogManager.GetCurrentClassLogger();
 
+        public Dictionary<OperationCode, BaseHandler> handlerSet = new Dictionary<OperationCode, BaseHandler>();
+        public List<ClientPeer> peerList = new List<ClientPeer>();
+
+        private SyncPositionThread syncPositionThread = new SyncPositionThread();
+
         public new static MyGameServer Instance
         {
             get;
             private set;
         }
 
-        public Dictionary<OperationCode, BaseHandler> handlerSet = new Dictionary<OperationCode, BaseHandler>();
         //当一个客户端请求连接的时候
         protected override PeerBase CreatePeer(InitRequest initRequest)
         {
             log.Info("A client created.");
-            return new ClientPeer(initRequest);
+            ClientPeer peer = new ClientPeer(initRequest);
+            peerList.Add(peer);
+            return peer;
         }
 
         //初始化
@@ -39,6 +46,7 @@ namespace MyGameServer
         {
             Instance = this;
             log.Info("First message logged.");
+            syncPositionThread.Run();
 
             InitHandler();
 
@@ -63,6 +71,7 @@ namespace MyGameServer
         //Server端关闭的时候
         protected override void TearDown()
         {
+            syncPositionThread.Stop();
             log.Info("The server shut down");
         }
 
@@ -73,6 +82,12 @@ namespace MyGameServer
 
             RegisterHandler registerHandler = new RegisterHandler();
             handlerSet.Add(registerHandler.opCode, registerHandler);
+
+            SyncPosHandler syncPosHandler = new SyncPosHandler();
+            handlerSet.Add(syncPosHandler.opCode, syncPosHandler);
+
+            SyncPlayerHandler syncPlayerHandler = new SyncPlayerHandler();
+            handlerSet.Add(syncPlayerHandler.opCode, syncPlayerHandler);
 
             DefaultHandler defaultHandler = new DefaultHandler();
             handlerSet.Add(defaultHandler.opCode,defaultHandler);

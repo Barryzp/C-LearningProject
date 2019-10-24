@@ -8,6 +8,11 @@ namespace _2018_10_04_EventAndGitHub
 {
     class Program
     {
+        public static void JustForTest()
+        {
+            Console.WriteLine("For testing.");
+        }
+
         public static void EventTest()
         {
             Teacher teacher = new Teacher();
@@ -18,13 +23,19 @@ namespace _2018_10_04_EventAndGitHub
             teacher.SayingWords += barry.Saying;
             teacher.SayingWords += mary.Saying;
 
-            teacher.SpeakYourName();
+            teacher.SpeakYourName("just for test");
         }
 
         static void Main(string[] args)
         {
             EventTest();
-            Console.WriteLine("end!");
+            //List<int> numberSet = new List<int>();
+            //for (var index = 0; index < 13; index++)
+            //    numberSet.Add(index);
+            //foreach (var item in numberSet)
+
+            //string str = new string(new char[] {'a','b','c'});
+            //Console.WriteLine("end!"+str);
         }
     }
 }

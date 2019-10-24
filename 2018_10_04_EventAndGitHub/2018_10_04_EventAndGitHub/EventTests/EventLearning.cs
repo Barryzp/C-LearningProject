@@ -6,17 +6,24 @@ using System.Threading.Tasks;
 
 namespace _2018_10_04_EventAndGitHub
 {
+
+    public abstract class animal
+    {
+        public abstract void Eat();
+        public void Drink() { }
+    }
+
     public class Teacher
     {
         //claim a delegate.
-        public delegate void PrintWordsDelegate();
+        public delegate void PrintWordsDelegate(string param);
         //claim a event.
         public event PrintWordsDelegate SayingWords;
 
-        public void SpeakYourName()
+        public void SpeakYourName(string param)
         {
-            Console.WriteLine("Guys,start to saying!");
-            SayingWords.Invoke();
+            Console.WriteLine("Guys,you got to say something interested!");
+            SayingWords.Invoke(param);
         }
     }
 
@@ -28,7 +35,7 @@ namespace _2018_10_04_EventAndGitHub
             this.name = name;
         }
 
-        public virtual void Saying() { Console.WriteLine("My name is: " + name); }
+        public virtual void Saying(string param) { Console.WriteLine("My name is: " + name+param); }
     }
 
     public class Woman : Person

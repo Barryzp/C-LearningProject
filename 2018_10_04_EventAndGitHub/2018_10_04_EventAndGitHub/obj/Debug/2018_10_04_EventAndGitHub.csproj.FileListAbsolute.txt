@@ -1,0 +1,7 @@
+D:\WorkSpace_Main\C-LearningProject\2018_10_04_EventAndGitHub\2018_10_04_EventAndGitHub\bin\Debug\2018_10_04_EventAndGitHub.exe.config
+D:\WorkSpace_Main\C-LearningProject\2018_10_04_EventAndGitHub\2018_10_04_EventAndGitHub\bin\Debug\2018_10_04_EventAndGitHub.exe
+D:\WorkSpace_Main\C-LearningProject\2018_10_04_EventAndGitHub\2018_10_04_EventAndGitHub\bin\Debug\2018_10_04_EventAndGitHub.pdb
+D:\WorkSpace_Main\C-LearningProject\2018_10_04_EventAndGitHub\2018_10_04_EventAndGitHub\obj\Debug\2018_10_04_EventAndGitHub.csprojAssemblyReference.cache
+D:\WorkSpace_Main\C-LearningProject\2018_10_04_EventAndGitHub\2018_10_04_EventAndGitHub\obj\Debug\2018_10_04_EventAndGitHub.csproj.CoreCompileInputs.cache
+D:\WorkSpace_Main\C-LearningProject\2018_10_04_EventAndGitHub\2018_10_04_EventAndGitHub\obj\Debug\2018_10_04_EventAndGitHub.exe
+D:\WorkSpace_Main\C-LearningProject\2018_10_04_EventAndGitHub\2018_10_04_EventAndGitHub\obj\Debug\2018_10_04_EventAndGitHub.pdb
